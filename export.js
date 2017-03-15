@@ -4009,34 +4009,34 @@ if ( !AmCharts.translations[ "export" ][ "en" ] ) {
 					}
 				}
 
-				let annotateMenu = _this.config.isAnnotationMsg ? {
-                        "class": _this.config.isAnnotationDisabled ? "annotation-disabled" : '',
-                        label: _this.i18l( "menu.label.draw" ),
-                        action: "draw",
-                        menu: _this.config.fabric.drawing.menu,
-                        afterCapture: function() {
-                            this.config.afterCapture ? this.config.afterCapture(this.setup) : {};
-                            let canvas = this.setup.fabric;
-                            let save = new fabric.Text("Don't forget to download your's annotation", {
-                                originX: "center",
-                                originY: "center",
-                                top: 40,
-                                left: canvas.width - 200,
-                                fontSize: 18,
-                                fill: '#f69d00'
-                            });
-                            this.setup.fabric.add(save);
-                        }
-                    } :
-                    {
-                        "class": _this.config.isAnnotationDisabled ? "annotation-disabled" : '',
-                        label: _this.i18l( "menu.label.draw" ),
-                        action: "draw",
-                        menu: _this.config.fabric.drawing.menu
-                    };
-
 				// MERGE; SETUP MAIN MENU
 				if ( _this.config.menu === undefined ) {
+					var annotateMenu = _this.config.isAnnotationMsg ? {
+						    "class": _this.config.isAnnotationDisabled ? "annotation-disabled" : '',
+						    label: _this.i18l( "menu.label.draw" ),
+						    action: "draw",
+						    menu: _this.config.fabric.drawing.menu,
+						    afterCapture: function() {
+							this.config.afterCapture ? this.config.afterCapture(this.setup) : {};
+							var canvas = this.setup.fabric;
+							var save = new fabric.Text("Don't forget to download your's annotation", {
+							    originX: "center",
+							    originY: "center",
+							    top: 40,
+							    left: canvas.width - 200,
+							    fontSize: 18,
+							    fill: '#f69d00'
+							});
+							this.setup.fabric.add(save);
+						    }
+						} :
+						{
+						    "class": _this.config.isAnnotationDisabled ? "annotation-disabled" : '',
+						    label: _this.i18l( "menu.label.draw" ),
+						    action: "draw",
+						    menu: _this.config.fabric.drawing.menu
+						};
+					
 					_this.config.menu = [];
 					// PARENT MENU
 					_this.deepMerge( _this.config, {
